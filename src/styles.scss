@@ -1,4 +1,6 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+// @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+// 升级@angular/material 2.0.0-beta.8之后才可以，@angular/material 2.0.0-beta.7不支持
+@import 'theme.scss';
 
 html, body, app-root, md-sidenav-container, .site {
     width: 100%;
@@ -13,18 +15,16 @@ html, body, app-root, md-sidenav-container, .site {
     flex-direction: column;
 }
 
+// 主容器
 main {
     flex: 1;
 }
 
+// 填满宽度
 .full-width {
     width: 100%;
 }
 
-header {
-    background-color: green;
-}
-
-footer {
-    background-color: orange;
+.fill-remaining-space {
+    flex: 1 1 auto;
 }
