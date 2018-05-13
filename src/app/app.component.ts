@@ -10,8 +10,8 @@ export class AppComponent {
   // 黑色主题
   darkTheme = false;
 
+  // 夜间模式切换
   switchTheme(dark: boolean): void {
-    console.log('切换 ', dark);
     this.darkTheme = dark;
   }
 }

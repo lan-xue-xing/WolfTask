@@ -15,10 +15,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  // 侧滑菜单切换
   openSideBar(): void {
     this.toggle.emit();
   }
 
+  // 夜间模式切换
   onChange(checked: boolean): void {
     this.toggleDarkTheme.emit(checked);
   }
