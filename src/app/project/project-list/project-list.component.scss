@@ -1,0 +1,21 @@
+// 项目Item卡片
+.card {
+    flex: 0 0 360px;
+    height: 360px;
+    margin: 10px;
+}
+
+// 容器
+:host {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+// 按钮
+.fab-button {
+    position: fixed;
+    right: 32px;
+    bottom: 96px;
+    z-index: 998;
+}

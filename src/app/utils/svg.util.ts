@@ -6,6 +6,7 @@ export const loadSvgResources = (ir: MdIconRegistry, ds: DomSanitizer) => {
     const imgDir = 'assets/img';
     const sidebarDir = `${imgDir}/sidebar`;
     const dayDir = `${imgDir}/days`;
+    const avatar = `${imgDir}/avatar`;
     // 侧滑菜单
     ir.addSvgIcon('day', ds.bypassSecurityTrustResourceUrl(`${sidebarDir}/day.svg`));
     ir.addSvgIcon('week', ds.bypassSecurityTrustResourceUrl(`${sidebarDir}/week.svg`));
@@ -19,4 +20,6 @@ export const loadSvgResources = (ir: MdIconRegistry, ds: DomSanitizer) => {
         21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31
     ];
     days.forEach((day: number) => ir.addSvgIcon(`day${day}`, ds.bypassSecurityTrustResourceUrl(`${dayDir}/day${day}.svg`)));
+    // 头像
+    ir.addSvgIconSetInNamespace('avatars', ds.bypassSecurityTrustResourceUrl(`${avatar}/avatars.svg`));
 };

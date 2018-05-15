@@ -1,0 +1,15 @@
+<form>
+  <h3 md-dialog-title>邀请组员</h3>
+  <md-input-container class="full-with">
+    <input mdInput type="text" placeholder="组员名" [mdAutocomplete]="autoMembers">
+  </md-input-container>
+  <div md-dialog-actions>
+    <button type="button" md-raised-button color="primary" (click)="onSave()">保存</button>
+    <button type="button" md-dialog-close md-button>关闭</button>
+  </div>
+</form>
+<md-autocomplete #autoMembers="mdAutocomplete" [displayWith]="displayUser">
+  <md-option *ngFor="let item of members" [value]="item">
+    {{item.name}}
+  </md-option>
+</md-autocomplete>
