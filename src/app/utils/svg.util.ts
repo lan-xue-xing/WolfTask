@@ -7,6 +7,7 @@ export const loadSvgResources = (ir: MdIconRegistry, ds: DomSanitizer) => {
     const sidebarDir = `${imgDir}/sidebar`;
     const dayDir = `${imgDir}/days`;
     const avatar = `${imgDir}/avatar`;
+    const iconsDir = `${imgDir}/icons`;
     // 侧滑菜单
     ir.addSvgIcon('day', ds.bypassSecurityTrustResourceUrl(`${sidebarDir}/day.svg`));
     ir.addSvgIcon('week', ds.bypassSecurityTrustResourceUrl(`${sidebarDir}/week.svg`));
@@ -22,4 +23,8 @@ export const loadSvgResources = (ir: MdIconRegistry, ds: DomSanitizer) => {
     days.forEach((day: number) => ir.addSvgIcon(`day${day}`, ds.bypassSecurityTrustResourceUrl(`${dayDir}/day${day}.svg`)));
     // 头像
     ir.addSvgIconSetInNamespace('avatars', ds.bypassSecurityTrustResourceUrl(`${avatar}/avatars.svg`));
+    // 图标
+    ir.addSvgIcon('move', ds.bypassSecurityTrustResourceUrl(`${iconsDir}/move.svg`));
+    ir.addSvgIcon('delete', ds.bypassSecurityTrustResourceUrl(`${iconsDir}/delete.svg`));
+    ir.addSvgIcon('add', ds.bypassSecurityTrustResourceUrl(`${iconsDir}/add.svg`));
 };
