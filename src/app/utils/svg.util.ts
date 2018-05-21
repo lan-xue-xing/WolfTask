@@ -23,6 +23,7 @@ export const loadSvgResources = (ir: MdIconRegistry, ds: DomSanitizer) => {
     days.forEach((day: number) => ir.addSvgIcon(`day${day}`, ds.bypassSecurityTrustResourceUrl(`${dayDir}/day${day}.svg`)));
     // 头像
     ir.addSvgIconSetInNamespace('avatars', ds.bypassSecurityTrustResourceUrl(`${avatar}/avatars.svg`));
+    ir.addSvgIcon('unassigned', ds.bypassSecurityTrustResourceUrl(`${avatar}/unassigned.svg`));
     // 图标
     ir.addSvgIcon('move', ds.bypassSecurityTrustResourceUrl(`${iconsDir}/move.svg`));
     ir.addSvgIcon('delete', ds.bypassSecurityTrustResourceUrl(`${iconsDir}/delete.svg`));
