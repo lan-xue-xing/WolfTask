@@ -1,7 +1,7 @@
-import { NewTaskComponent } from './../new-task/new-task.component';
-import { MdDialog } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
+import { MdDialog } from '@angular/material';
 import { CopyTaskComponent } from '../copy-task/copy-task.component';
+import { NewTaskComponent } from './../new-task/new-task.component';
 
 @Component({
   selector: 'app-task-home',
@@ -84,12 +84,17 @@ export class TaskHomeComponent implements OnInit {
 
   // 新建任务对话框
   launchNewTaskDialog(): void {
-    this.dialog.open(NewTaskComponent);
+    const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: '新建任务'}});
   }
 
   // 移动列表所有内容
   launchCopyTaskDialog(): void {
-    const  dialogRef = this.dialog.open(CopyTaskComponent, {data: {lists: this.tasklists}});
+    const dialogRef = this.dialog.open(CopyTaskComponent, {data: {lists: this.tasklists}});
+  }
+
+  // 条目弹出框
+  launchUpdateTaskDialog(task): void {
+    const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: '修改任务', task: task}});
   }
 
 }

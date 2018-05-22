@@ -1,6 +1,15 @@
 <md-list-item class="container"
-  [ngClass]="{'priority-normal': task.priority === 3, 'priority-important': task.priority === 2, 'priority-emergency': task.priority === 3}">
-  <md-checkbox class="completion-status" [checked]="task.completed"></md-checkbox>
+  [ngClass]="{
+    'priority-normal': task.priority === 3,
+    'priority-important': task.priority === 2,
+    'priority-emergency': task.priority === 3
+  }"
+  (click)="onItemClick()">
+  <md-checkbox
+    class="completion-status"
+    [checked]="task.completed"
+    (click)="onCheckBoxClick($event)">
+  </md-checkbox>
   <div md-line class="content" [ngClass]="{'completed': task.completed}">
     <span [md-tooltip]="task.desc">{{task.desc}}</span>
   </div>
