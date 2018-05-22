@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-task-header',
@@ -9,10 +9,22 @@ export class TaskHeaderComponent implements OnInit {
 
   // 标题
   @Input() header = '';
+  @Output() newTask = new EventEmitter<void>();
+  @Output() moveAll = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  // 新建任务
+  onNewTaskClick(): void {
+    this.newTask.emit();
+  }
+
+  // 移动列表所有内容
+  onMoveAllClick(): void {
+    this.moveAll.emit();
   }
 
 }
