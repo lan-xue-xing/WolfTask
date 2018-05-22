@@ -17,7 +17,7 @@
 
 <!-- 子菜单项 -->
 <md-menu #menu="mdMenu">
-  <button md-menu-item>
+  <button md-menu-item (click)="onEditListClick()">
     <md-icon>mode_edit</md-icon>
     <span>修改列表名</span>
   </button>
@@ -25,7 +25,7 @@
     <md-icon [svgIcon]="'move'" class="material-icon"></md-icon>
     <span>移动列表所有内容</span>
   </button>
-  <button md-menu-item>
+  <button md-menu-item (click)="onDeleteListDialog()">
     <md-icon>delete_forever</md-icon>
     <span>删除列表</span>
   </button>

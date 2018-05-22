@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
+import { ConfirmDialogComponent } from '../../share/confirm-dialog/confirm-dialog.component';
 import { CopyTaskComponent } from '../copy-task/copy-task.component';
+import { NewTaskListComponent } from '../new-task-list/new-task-list.component';
 import { NewTaskComponent } from './../new-task/new-task.component';
 
 @Component({
@@ -82,19 +84,30 @@ export class TaskHomeComponent implements OnInit {
 
   openNewTaskDialog(): void {}
 
-  // 新建任务对话框
+  // 新建任务对话框弹出框
   launchNewTaskDialog(): void {
     const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: '新建任务'}});
   }
 
-  // 移动列表所有内容
+  // 移动列表所有内容弹出框
   launchCopyTaskDialog(): void {
     const dialogRef = this.dialog.open(CopyTaskComponent, {data: {lists: this.tasklists}});
   }
 
-  // 条目弹出框
+  // 更新条目弹出框
   launchUpdateTaskDialog(task): void {
     const dialogRef = this.dialog.open(NewTaskComponent, {data: {title: '修改任务', task: task}});
+  }
+
+  // 删除项目弹出框
+  launchDeleteTaskDialog(): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {data: {title: '删除任务列表', content: '你确定删除该任务列表嘛？'}});
+  }
+
+  // 修改列表名框弹出框
+  launchEditTaskDialog(): void {
+    const dialogRef = this.dialog.open(NewTaskListComponent, {data: {title: '更改列表名'}});
+    dialogRef.afterClosed().subscribe(result => console.log('结果返回： ', result));
   }
 
 }

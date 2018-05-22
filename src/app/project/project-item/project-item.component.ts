@@ -9,6 +9,8 @@ export class ProjectItemComponent implements OnInit {
 
   @Input() project;
   @Output() onInvite = new EventEmitter<void>();
+  @Output() onEdit = new EventEmitter<void>();
+  @Output() onDelete = new EventEmitter<void>();
 
   constructor() { }
 
@@ -18,6 +20,16 @@ export class ProjectItemComponent implements OnInit {
   // 邀请
   onInviteClick(): void {
     this.onInvite.emit();
+  }
+
+  // 编辑
+  onEditClick(): void {
+    this.onEdit.emit();
+  }
+
+  // 删除
+  onDeleteClick(): void {
+    this.onDelete.emit();
   }
 
 }
