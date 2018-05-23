@@ -3,6 +3,8 @@ import { HttpModule } from '@angular/http';
 import { MdIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
 import { ShareModule } from '../share/share.module';
 import { loadSvgResources } from './../utils/svg.util';
 import { FooterComponent } from './footer/footer.component';
@@ -15,7 +17,9 @@ import 'hammerjs';
   imports: [
     HttpModule,
     BrowserAnimationsModule,
-    ShareModule
+    ShareModule,
+    RouterModule,
+    AppRoutingModule
   ],
   declarations: [
     HeaderComponent,
@@ -27,7 +31,8 @@ import 'hammerjs';
     HeaderComponent,
     FooterComponent,
     MainComponent,
-    SidebarComponent
+    SidebarComponent,
+    AppRoutingModule
   ]
 })
 export class CoreModule {

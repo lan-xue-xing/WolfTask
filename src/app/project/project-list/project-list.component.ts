@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
+import { slideToRight } from '../../anims/router.anim';
 import { InviteComponent } from '../invite/invite.component';
 import { NewProjectComponent } from '../new-project/new-project.component';
 import { ConfirmDialogComponent } from './../../share/confirm-dialog/confirm-dialog.component';
@@ -7,10 +8,12 @@ import { ConfirmDialogComponent } from './../../share/confirm-dialog/confirm-dia
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
-  styleUrls: ['./project-list.component.scss']
+  styleUrls: ['./project-list.component.scss'],
+  animations: [slideToRight]
 })
 export class ProjectListComponent implements OnInit {
 
+  @HostBinding('@routeAnim') state;
   // 项目集
   projects = [
     {

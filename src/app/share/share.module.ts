@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
+  MdSidenavModule,
   MdToolbarModule,
   MdIconModule,
   MdButtonModule,
@@ -24,6 +25,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 @NgModule({
   imports: [
     CommonModule,
+    MdSidenavModule,
     MdToolbarModule,
     MdIconModule,
     MdButtonModule,
@@ -44,6 +46,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
   ],
   exports: [
     CommonModule,
+    MdSidenavModule,
     MdToolbarModule,
     MdIconModule,
     MdButtonModule,

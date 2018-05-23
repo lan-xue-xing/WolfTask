@@ -1,4 +1,5 @@
 <md-list-item class="container"
+  [@item]='widthPriority'
   [ngClass]="{
     'priority-normal': task.priority === 3,
     'priority-important': task.priority === 2,
