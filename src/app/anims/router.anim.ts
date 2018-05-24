@@ -20,4 +20,5 @@ export const slideToRight = trigger('routeAnim', [
     ])
     // void => * 可以写成 :enter
     // * => void 可以写成 :leave
+    // group 是一组动画
 ]);
