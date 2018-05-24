@@ -1,5 +1,5 @@
 import { listAnimation } from './../../anims/list.anim';
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { slideToRight } from '../../anims/router.anim';
 import { InviteComponent } from '../invite/invite.component';
@@ -10,7 +10,8 @@ import { ConfirmDialogComponent } from './../../share/confirm-dialog/confirm-dia
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.scss'],
-  animations: [slideToRight, listAnimation]
+  animations: [slideToRight, listAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectListComponent implements OnInit {
 
@@ -31,7 +32,10 @@ export class ProjectListComponent implements OnInit {
     }
   ];
 
-  constructor(private dialog: MdDialog) { }
+  constructor(
+    private dialog: MdDialog,
+    private cdr: ChangeDetectorRef
+  ) { }
 
   ngOnInit() {
   }
@@ -44,6 +48,7 @@ export class ProjectListComponent implements OnInit {
       this.projects = [...this.projects, {
         id: 3, name: '青莲地心火', desc: '青莲地心火，小说《斗破苍穹》里的一种异火。', coverImg: 'assets/img/covers/2.jpg'
       }];
+      this.cdr.markForCheck();
     });
   }
 
@@ -62,6 +67,7 @@ export class ProjectListComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {data: {title: '删除项目', content: '你确认删除该项目嘛？'}});
     dialogRef.afterClosed().subscribe(result => {
       this.projects = this.projects.filter(p => p.id !== project.id);
+      this.cdr.markForCheck();
     });
   }
 

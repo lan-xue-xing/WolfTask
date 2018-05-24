@@ -5,6 +5,8 @@
     'priority-important': task.priority === 2,
     'priority-emergency': task.priority === 3
   }"
+  [appDrag]="true"
+  [draggedClass]="'drag-start'"
   (click)="onItemClick()">
   <md-checkbox
     class="completion-status"
