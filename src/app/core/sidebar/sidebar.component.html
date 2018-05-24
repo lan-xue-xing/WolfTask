@@ -1,7 +1,7 @@
 <md-nav-list>
   <!-- 项目 -->
   <h3 md-subheader>我的项目</h3>
-  <md-list-item [routerLink]="['/projects']">
+  <md-list-item [routerLink]="['/projects']" (click)="onNavClick()">
     <md-icon md-list-icon svgIcon="projects"></md-icon>
     <span md-line>项目首页</span>
     <span md-line md-subheader>查看我的所有项目</span>
@@ -9,7 +9,7 @@
 
   <!-- 日历 -->
   <h3 md-subheader>我的日历</h3>
-  <md-list-item [routerLink]="['/tasklists']">
+  <md-list-item [routerLink]="['/tasklists']" (click)="onNavClick()">
     <md-icon md-list-icon svgIcon="month"></md-icon>
     <span md-line>月视图</span>
     <span md-line md-subheader>按月查看我的视图</span>
