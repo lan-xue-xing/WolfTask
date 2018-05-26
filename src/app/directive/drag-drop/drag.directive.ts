@@ -1,7 +1,8 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
+import { DragDropService } from './../drag-drop.service';
 
 @Directive({
-  selector: '[appDrag][draggedClass]'
+  selector: '[appDrag][dragTag][draggedClass][dragData]'
 })
 export class DragDirective {
 
@@ -19,6 +20,8 @@ export class DragDirective {
     return this._isDraggable;
   }
 
+  @Input() dragTag: string;
+  @Input() dragData: string;
   @Input() draggedClass: string;
   // 事件监听
   @HostListener('dragstart', ['$event'])
@@ -26,6 +29,7 @@ export class DragDirective {
     if (this.el.nativeElement === ev.target) {
       // 給对应的Dom元素动态添加class样式
       this.rd.addClass(this.el.nativeElement, this.draggedClass)
+      this.service.setDragData({tag: this.dragTag, data: this.dragData});
     }
   }
 
@@ -39,7 +43,8 @@ export class DragDirective {
 
   constructor(
     private el: ElementRef,
-    private rd: Renderer2
+    private rd: Renderer2,
+    private service: DragDropService
   ) { }
 
 }

@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import 'rxjs/add/operator/take';
 import 'hammerjs';
 
 @NgModule({

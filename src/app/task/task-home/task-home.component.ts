@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../../share/confirm-dialog/confirm-dialog.component';
 import { CopyTaskComponent } from '../copy-task/copy-task.component';
@@ -21,6 +21,7 @@ export class TaskHomeComponent implements OnInit {
     {
       id: 1,
       name: '待办',
+      order: 1,
       tasks: [
         {
           id: 1,
@@ -52,6 +53,7 @@ export class TaskHomeComponent implements OnInit {
     {
       id: 2,
       name: '进行中',
+      order: 2,
       tasks: [
         {
           id: 3,
@@ -113,5 +115,26 @@ export class TaskHomeComponent implements OnInit {
     const dialogRef = this.dialog.open(NewTaskListComponent, {data: {title: '更改列表名'}});
     dialogRef.afterClosed().subscribe(result => console.log('结果返回： ', result));
   }
+
+  // 处理拖拽事件
+  handleMove(srcData, list): void {
+    switch (srcData.tag) {
+      case 'task-item':
+        console.log('handle item');
+        break;
+      case 'task-list':
+        console.log('handle list');
+        const srcList = srcData.data;
+        const tempOrder = srcList.order;
+        srcList.order = list.order;
+        list.order = tempOrder;
+        break;
+      default:
+        break;
+    }
+  }
+
+  // 单选框选中事件
+  handleCompleteTask(): void {}
 
 }

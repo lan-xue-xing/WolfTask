@@ -15,6 +15,7 @@ export class TaskItemComponent implements OnInit {
   widthPriority = 'in';
   @Input() task;
   @Output() taskClick = new EventEmitter<void>();
+  @Output() taskComplete = new EventEmitter<void>();
   @HostListener('mouseenter')
   onMouseEnter() {
     this.widthPriority = 'out';
@@ -31,13 +32,19 @@ export class TaskItemComponent implements OnInit {
   }
 
   // 条目点击事件
-  onItemClick(): void {
+  onItemClick(ev: Event): void {
+    ev.preventDefault();
     this.taskClick.emit();
   }
 
   // 单选框点击事件
   onCheckBoxClick(ev: Event): void {
     ev.stopPropagation();
+  }
+
+  // 单选框勾选状态变更检测
+  oncheckBoxChanged(): void {
+    this.taskComplete.emit();
   }
 
 }
