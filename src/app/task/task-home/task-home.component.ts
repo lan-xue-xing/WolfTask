@@ -137,4 +137,9 @@ export class TaskHomeComponent implements OnInit {
   // 单选框选中事件
   handleCompleteTask(): void {}
 
+  // 快速创建任务
+  handleQuickTask(desc: string): void {
+    console.log('快速创建的任务： ', desc);
+  }
+
 }
