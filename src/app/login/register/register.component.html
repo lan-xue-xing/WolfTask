@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
   <!-- 注册框 -->
   <md-card>
     <md-card-header>
@@ -6,23 +6,25 @@
     </md-card-header>
     <md-card-content>
       <md-input-container class="full-width">
-        <input mdInput type="text" placeholder="请输入你的邮箱" />
+        <input mdInput type="text" placeholder="请输入你的邮箱" formControlName="email"/>
       </md-input-container>
       <md-input-container class="full-width">
-        <input mdInput type="text" placeholder="请输入你的名字" />
+        <input mdInput type="text" placeholder="请输入你的名字" formControlName="name"/>
       </md-input-container>
       <md-input-container class="full-width">
-        <input mdInput type="password" placeholder="请输入你的密码" />
+        <input mdInput type="password" placeholder="请输入你的密码" formControlName="password"/>
       </md-input-container>
       <md-input-container class="full-width">
-        <input mdInput type="password" placeholder="确认你的密码" />
+        <input mdInput type="password" placeholder="确认你的密码" formControlName="confirmPassword"/>
       </md-input-container>
-      <md-grid-list cols="8" rowHeight="1:1">
-        <md-grid-tile *ngFor="let item of avatars">
-          <md-icon class="avatar" [svgIcon]="item"></md-icon>
-        </md-grid-tile>
-      </md-grid-list>
-      <button md-raised-button color="primary" type="button" class="btnRegister">注册</button>
+      <app-image-list-select
+        [useSvgIcon]="true"
+        [cols]="8"
+        [title]="'选择头像'"
+        [items]="avatars"
+        formControlName="avatar">
+      </app-image-list-select>
+      <button md-raised-button color="primary" type="submit" class="btnRegister">注册</button>
     </md-card-content>
     <md-card-actions class="text-right">
       <p>已经帐号&nbsp;<a routerLink="/login">立即登录</a></p>

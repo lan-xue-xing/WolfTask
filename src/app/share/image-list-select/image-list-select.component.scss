@@ -1,0 +1,65 @@
+// 已经选中的头像
+md-icon.avatar {
+    overflow: hidden;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: 12px;
+}
+
+// 候选头像容器
+.scroll-container {
+    overflow-y: scroll;
+    height: 200px;
+}
+
+// 图片容器
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+// 图片
+.image-container img {
+    display: block;
+}
+
+// 浮动层
+.image-container .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    color: #FFF;
+}
+
+// 浮动层（鼠标悬浮）
+.image-container:hover .after {
+    display: block;
+    background: rgba(0, 0, 0, .6);
+}
+
+// 浮动层图标（对勾）
+.image-container .after .zoom {
+    color: #DDD;
+    font-size: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -35px 0 0 -10px;
+    height: 50px;
+    width: 45px;
+    cursor: pointer;
+}
+
+// 浮动层图标（对勾）--> 鼠标悬浮
+.image-container .after .zoom:hover {
+    color: #FFF;
+}
+
+// 覆盖物
+.cover {
+    width: 150px;
+}

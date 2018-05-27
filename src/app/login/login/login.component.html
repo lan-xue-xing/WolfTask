@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
     <!-- 登陆框 -->
     <md-card>
       <md-card-header>
@@ -6,12 +6,13 @@
       </md-card-header>
       <md-card-content>
         <md-input-container class="full-width">
-          <input mdInput type="text" placeholder="请输入你的邮箱" />
+          <input mdInput type="text" placeholder="请输入你的邮箱" formControlName="email"/>
         </md-input-container>
         <md-input-container class="full-width">
-          <input mdInput type="password" placeholder="请输入你的密码" />
+          <input mdInput type="password" placeholder="请输入你的密码" formControlName="password"/>
+          <md-error>{{form.controls['password'].errors | json}}</md-error>
         </md-input-container>
-        <button md-raised-button color="primary" type="button">登陆</button>
+        <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">登陆</button>
       </md-card-content>
       <md-card-actions class="text-right">
         <p>没有帐号&nbsp;<a routerLink="/register">立即注册</a></p>
