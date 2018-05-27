@@ -24,13 +24,9 @@
     <md-card>
         <md-card-header>
           <md-card-title>每日佳句</md-card-title>
-          <md-card-subtitle>
-            人生并不像火车要通过每个站似的经过每一个生活阶段。人生总是直向前行走，从不留下什么。
-          </md-card-subtitle>
+          <md-card-subtitle>{{quote.cn}}</md-card-subtitle>
         </md-card-header>
-        <img md-card-image src="/assets/img/quote_fallback.jpg" alt="每日佳句">
-        <md-card-content>
-          Life is not like a train going through every station like every stage of life. Life is always moving forward without leaving anything behind.
-        </md-card-content>
+        <img md-card-image [src]="quote.pic" alt="每日佳句">
+        <md-card-content>{{quote.en}}</md-card-content>
       </md-card>
 </form>

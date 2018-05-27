@@ -11,7 +11,11 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ServicesModule } from '../services/services.module';
 import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import '../utils/debug.util';
 import 'hammerjs';
 
 @NgModule({
@@ -20,7 +24,8 @@ import 'hammerjs';
     BrowserAnimationsModule,
     ShareModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServicesModule.forRoot()
   ],
   declarations: [
     HeaderComponent,
@@ -34,6 +39,11 @@ import 'hammerjs';
     MainComponent,
     SidebarComponent,
     AppRoutingModule
+  ],
+  providers: [
+    {provide: 'BASE_CONFIG', useValue: {
+      uri: 'http://localhost:3000'
+    }}
   ]
 })
 export class CoreModule {

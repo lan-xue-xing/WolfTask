@@ -1,3 +1,5 @@
+import { Quote } from './../../models/quote.model';
+import { QuoteService } from './../../services/quote.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -10,8 +12,19 @@ export class LoginComponent implements OnInit {
 
   // 表单
   form: FormGroup;
+  quote: Quote = {
+    id: '0',
+    cn: '人生并不像火车要通过每个站似的经过每一个生活阶段。人生总是直向前行走，从不留下什么。',
+    en: 'Life is not like a train going through every station like every stage of life' +
+        'Life is always moving forward without leaving anything behind.',
+    pic: '/assets/img/quote_fallback.jpg'
+  };
 
-  constructor() { }
+  constructor(
+    private quoteService$: QuoteService
+  ) {
+    this.quoteService$.getQuote().subscribe((quote: Quote) => this.quote = quote);
+  }
 
   ngOnInit() {
     this.form = new FormGroup({
