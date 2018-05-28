@@ -20,6 +20,12 @@ export class AgeInputComponent implements ControlValueAccessor {
 
   // 表单
   form: FormGroup;
+  ageUnits = [
+    {
+      value: '',
+      label: ''
+    }
+  ];
 
   constructor(
     private fb: FormBuilder

@@ -19,7 +19,8 @@ import {
   MdDatepickerModule,
   MdRadioModule,
   MdNativeDateModule,
-  MdSelectModule
+  MdSelectModule,
+  MdButtonToggleModule
 } from '@angular/material';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DirectiveModule } from '../directive/directive.module';
@@ -49,7 +50,8 @@ import { AgeInputComponent } from './age-input/age-input.component';
     MdSelectModule,
     DirectiveModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MdButtonToggleModule
   ],
   exports: [
     CommonModule,
@@ -75,7 +77,8 @@ import { AgeInputComponent } from './age-input/age-input.component';
     FormsModule,
     ReactiveFormsModule,
     ImageListSelectComponent,
-    AgeInputComponent
+    AgeInputComponent,
+    MdButtonToggleModule
   ],
   entryComponents: [
     ConfirmDialogComponent
