@@ -23,11 +23,12 @@ export class RegisterComponent implements OnInit {
     const indexs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     this.avatars = indexs.map(idx => `avatars:svg-${idx}`);
     this.form = fb.group({
-      email:              [''],
-      name:               [''],
-      password:           [''],
-      confirmPassword:    [''],
-      avatar:             [img]
+      email:              [],
+      name:               [],
+      password:           [],
+      confirmPassword:    [],
+      avatar:             [img],
+      dateOfBrith:        []
     });
   }
 
