@@ -1,10 +1,12 @@
-import { listAnimation } from './../../anims/list.anim';
-import { ChangeDetectionStrategy, Component, HostBinding, OnInit, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { slideToRight } from '../../anims/router.anim';
+import { ProjectService } from '../../services/project.service';
 import { InviteComponent } from '../invite/invite.component';
 import { NewProjectComponent } from '../new-project/new-project.component';
+import { listAnimation } from './../../anims/list.anim';
 import { ConfirmDialogComponent } from './../../share/confirm-dialog/confirm-dialog.component';
+import { Project } from '../../models';
 
 @Component({
   selector: 'app-project-list',
@@ -17,27 +19,30 @@ export class ProjectListComponent implements OnInit {
 
   @HostBinding('@routeAnim') state;
   // 项目集
-  projects = [
-    {
-      id: 1,
-      name: '狼性任务协作平台',
-      desc: '一个秘密组织项目',
-      coverImg: 'assets/img/covers/0.jpg'
-    },
-    {
-      id: 2,
-      name: '二十四桥明月夜',
-      desc: '一个很牛B的魂导器',
-      coverImg: 'assets/img/covers/1.jpg'
-    }
-  ];
+  // projects = [
+  //   {
+  //     id: 1,
+  //     name: '狼性任务协作平台',
+  //     desc: '一个秘密组织项目',
+  //     coverImg: 'assets/img/covers/0.jpg'
+  //   },
+  //   {
+  //     id: 2,
+  //     name: '二十四桥明月夜',
+  //     desc: '一个很牛B的魂导器',
+  //     coverImg: 'assets/img/covers/1.jpg'
+  //   }
+  // ];
+  projects;
 
   constructor(
     private dialog: MdDialog,
-    private cdr: ChangeDetectorRef
-  ) { }
+    private cdr: ChangeDetectorRef,
+    private service$: ProjectService
+  ) {}
 
   ngOnInit() {
+    this.service$.get('1').subscribe(projects => this.projects = projects);
   }
 
   // 新增弹出框
