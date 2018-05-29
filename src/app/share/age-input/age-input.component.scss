@@ -1,0 +1,12 @@
+// 容器
+.age-input {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+// 年龄
+.age-num {
+    width: 50px;
+}
