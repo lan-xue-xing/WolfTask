@@ -9,7 +9,7 @@ export class ProjectService {
   // restful API
   private readonly domain = 'projects';
   private headers = new Headers({
-    'Content-Type:': 'application/json'
+    'Content-Type': 'application/json'
   });
 
   constructor(
@@ -27,7 +27,7 @@ export class ProjectService {
 
   // 删
   delete(project: Project): Observable<Project> {
-    const delTasks$ = Observable.from(project.taskLists)
+    const delTasks$ = Observable.from(project.taskLists ? project.taskLists : [])
       .mergeMap(listId => this.http.delete(`${this.config.uri}/taskLists/${listId}`))
       .count();
     return delTasks$
