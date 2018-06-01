@@ -254,5 +254,102 @@
       "createDate": "2017-06-15T12:03:36.290Z",
       "id": 9
     }
+  ],
+  "roles": [
+    {
+      "id": 0,
+      "name": "SuperUser"
+    },
+    {
+      "id": 1,
+      "name": "User"
+    },
+    {
+      "id": 2,
+      "name": "Project Manager"
+    }
+  ],
+  "users": [
+    {
+      "password": "tangsan",
+      "name": "唐三",
+      "avatar": "avatars:svg-1",
+      "email": "tangsan@douluodalu.com",
+      "id": "37489e0c-df34-c261-71c4-ce75357e3035",
+      "projectIds": [
+        "Sk2HaTagb",
+        "Hya1moGb-"
+      ],
+      "roleIds": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "password": "xiaowu",
+      "name": "小舞",
+      "avatar": "avatars:svg-2",
+      "email": "xiaowu@douluodalu.com",
+      "id": "BkkDvwee-",
+      "projectIds": [
+        "Sk2HaTagb"
+      ],
+      "roleIds": [
+        1
+      ]
+    },
+    {
+      "password": "ningrongrong",
+      "name": "宁荣荣",
+      "avatar": "avatars:svg-3",
+      "email": "ningrongrong@douluodalu.com",
+      "id": "BkkDvwee-",
+      "projectIds": [
+        "Sk2HaTagb"
+      ],
+      "roleIds": [
+        2
+      ]
+    },
+    {
+      "password": "aosika",
+      "name": "奥斯卡",
+      "avatar": "avatars:svg-4",
+      "email": "aosika@douluodalu.com",
+      "id": "BkkDvwee-",
+      "projectIds": [
+        "Sk2HaTagb"
+      ],
+      "roleIds": [
+        3
+      ]
+    },
+    {
+      "password": "zhuzhuqing",
+      "name": "朱竹清",
+      "avatar": "avatars:svg-5",
+      "email": "zhuzhuqing@douluodalu.com",
+      "id": "BkkDvwee-",
+      "projectIds": [
+        "Sk2HaTagb"
+      ],
+      "roleIds": [
+        3
+      ]
+    },
+    {
+      "password": "daimubai",
+      "name": "戴沐白",
+      "avatar": "avatars:svg-6",
+      "email": "daimubai@douluodalu.com",
+      "id": "BkkDvwee-",
+      "projectIds": [
+        "Sk2HaTagb"
+      ],
+      "roleIds": [
+        3
+      ]
+    }
   ]
 }
