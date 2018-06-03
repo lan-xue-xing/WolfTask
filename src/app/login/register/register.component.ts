@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs/Subscription';
+import * as FormAuthAction from '../../actions/auth.action';
+import * as FormReducer from '../../reducers';
 import { extractInfo, getAddrByCode, isValidAddr, isValidDate } from '../../utils';
 import { Identity } from './../../models';
 
@@ -21,7 +24,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
   subId: Subscription;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private store$: Store<FormReducer.State>
   ) {
     const img = `${this.avatarName}:svg-${Math.floor(Math.random() * 16).toFixed(0)}`;
     const indexs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
@@ -57,8 +61,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
   // 注册
   onSubmit({value, valid}, ev: Event): void {
     ev.preventDefault();
-    console.log(JSON.stringify(value));
-    console.log(JSON.stringify(valid));
+    if (!valid) {
+      return;
+    }
+    this.store$.dispatch(new FormAuthAction.RegisterAction(value));
   }
 
   ngOnDestroy() {

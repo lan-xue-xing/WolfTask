@@ -28,9 +28,11 @@ import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/take';
 import { AppRoutingModule } from '../app-routing.module';
+import { AppEffectModule } from '../effects';
 import { ServicesModule } from '../services/services.module';
 import { ShareModule } from '../share/share.module';
 import '../utils/debug.util';
+import { AppStoreModule } from './../store/app.store';
 import { loadSvgResources } from './../utils/svg.util';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
@@ -44,7 +46,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ShareModule,
     RouterModule,
     AppRoutingModule,
-    ServicesModule.forRoot()
+    ServicesModule.forRoot(),
+    AppStoreModule,
+    AppEffectModule
   ],
   declarations: [
     HeaderComponent,

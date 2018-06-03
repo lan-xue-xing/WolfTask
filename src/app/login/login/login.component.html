@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
     <!-- 登陆框 -->
     <md-card>
       <md-card-header>
@@ -24,9 +24,9 @@
     <md-card>
         <md-card-header>
           <md-card-title>每日佳句</md-card-title>
-          <md-card-subtitle>{{quote.cn}}</md-card-subtitle>
+          <md-card-subtitle>{{(quote$ | async)?.cn}}</md-card-subtitle>
         </md-card-header>
-        <img md-card-image [src]="quote.pic" alt="每日佳句">
-        <md-card-content>{{quote.en}}</md-card-content>
+        <!-- <img md-card-image [src]="(quote$ | async)?.pic"> -->
+        <md-card-content>{{(quote$ | async)?.en}}</md-card-content>
       </md-card>
 </form>

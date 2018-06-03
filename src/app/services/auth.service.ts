@@ -24,6 +24,7 @@ export class AuthService {
     const uri = `${this.config.uri}/${this.domain}`;
     return this.http
       .get(uri, {params: {'email': user.email}})
+      .debug('register')
       .switchMap((res: Response) => {
         if (res.json().length > 0) {
           throw new Error('用户已经存在！');
@@ -35,10 +36,11 @@ export class AuthService {
   }
 
   // 登录
-  login(username: string, password: string): Observable<Auth> {
+  login(email: string, password: string): Observable<Auth> {
     const uri = `${this.config.uri}/${this.domain}`;
     return this.http
-      .get(uri, {params: {'username': username, 'password': password}})
+      .get(uri, {params: {'email': email, 'password': password}})
+      .debug('login')
       .map((res: Response) => {
         if (res.json().length === 0) {
           throw new Error('用户名或者密码错误!');

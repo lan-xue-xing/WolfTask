@@ -40,4 +40,10 @@ DELETE http://localhost:3000/taskLists/1
 ###
 GET http://localhost:3000/users?email_like=xiaowu
 
+###
+GET http://localhost:3000/quotes
+
+###
+GET http://localhost:3000/users?username=xiaowu@douluodalu.com&password=xiaowu
+
 

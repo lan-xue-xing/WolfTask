@@ -1,4 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as FormReducer from '../../reducers/';
+import { Auth } from '../../models';
+import { Observable } from 'rxjs/Observable';
+import * as FormAuthAction from '../../actions/auth.action';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +14,16 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggle = new EventEmitter<void>();
   @Output() toggleDarkTheme = new EventEmitter<boolean>();
+  auth$: Observable<Auth>;
 
-  constructor() { }
+  constructor(
+    private store$: Store<FormReducer.State>
+  ) {
+    this.auth$ = this.store$.select(FormReducer.getAuthState);
+  }
 
   ngOnInit() {
+    this.auth$.subscribe(res => console.log('登录认证： ', res));
   }
 
   // 侧滑菜单切换
@@ -23,6 +34,11 @@ export class HeaderComponent implements OnInit {
   // 夜间模式切换
   onChange(checked: boolean): void {
     this.toggleDarkTheme.emit(checked);
+  }
+
+  // 退出
+  logout(): void {
+    this.store$.dispatch(new FormAuthAction.LogoutAction(null));
   }
 
 }
