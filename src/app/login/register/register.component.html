@@ -1,35 +1,58 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
   <!-- 注册框 -->
   <md-card>
-    <md-card-header>
-      <md-card-title>注册</md-card-title>
-    </md-card-header>
-    <md-card-content>
-      <md-input-container class="full-width">
-        <input mdInput type="text" placeholder="请输入你的邮箱" formControlName="email"/>
-      </md-input-container>
-      <md-input-container class="full-width">
-        <input mdInput type="text" placeholder="请输入你的名字" formControlName="name"/>
-      </md-input-container>
-      <md-input-container class="full-width">
-        <input mdInput type="password" placeholder="请输入你的密码" formControlName="password"/>
-      </md-input-container>
-      <md-input-container class="full-width">
-        <input mdInput type="password" placeholder="确认你的密码" formControlName="confirmPassword"/>
-      </md-input-container>
-      <app-image-list-select
-        [useSvgIcon]="true"
-        [cols]="8"
-        [title]="'选择头像'"
-        [items]="avatars"
-        formControlName="avatar">
-      </app-image-list-select>
-      <app-age-input formControlName="dateOfBrith"></app-age-input>
-      <button md-raised-button color="primary" type="submit" class="btnRegister">注册</button>
-    </md-card-content>
-    <md-card-actions class="text-right">
-      <p>已经帐号&nbsp;<a routerLink="/login">立即登录</a></p>
-      <p>忘记密码&nbsp;<a href="">立即找回</a></p>
-    </md-card-actions>
+    <md-tab-group>
+
+      <md-tab label="帐号信息">
+        <md-card-header>
+          <md-card-title>注册</md-card-title>
+        </md-card-header>
+        <md-card-content>
+          <md-input-container class="full-width">
+            <input mdInput type="text" placeholder="请输入你的邮箱" formControlName="email"/>
+          </md-input-container>
+          <md-input-container class="full-width">
+            <input mdInput type="text" placeholder="请输入你的名字" formControlName="name"/>
+          </md-input-container>
+          <md-input-container class="full-width">
+            <input mdInput type="password" placeholder="请输入你的密码" formControlName="password"/>
+          </md-input-container>
+          <md-input-container class="full-width">
+            <input mdInput type="password" placeholder="确认你的密码" formControlName="confirmPassword"/>
+          </md-input-container>
+          <app-image-list-select
+            [useSvgIcon]="true"
+            [cols]="8"
+            [title]="'选择头像'"
+            [items]="avatars"
+            formControlName="avatar">
+          </app-image-list-select>
+          <button md-raised-button color="primary" type="submit" class="btnRegister">注册</button>
+        </md-card-content>
+        <md-card-actions class="text-right">
+          <p>已经帐号&nbsp;<a routerLink="/login">立即登录</a></p>
+          <p>忘记密码&nbsp;<a href="">立即找回</a></p>
+        </md-card-actions>
+      </md-tab>
+
+      <md-tab label="个人信息">
+        <div class="full-width">
+          <app-identity-input
+            formControlName="identity">
+          </app-identity-input>
+        </div>
+        <div class="full-width">
+          <app-age-input
+            formControlName="dateOfBirth">
+          </app-age-input>
+        </div>
+        <div class="full-width">
+          <app-area-list
+            formControlName="address">
+          </app-area-list>
+        </div>
+      </md-tab>
+
+    </md-tab-group>
   </md-card>
 </form>

@@ -1,0 +1,11 @@
+// 证件号码容器
+.id-input {
+    float: 1;
+}
+
+:host {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+}

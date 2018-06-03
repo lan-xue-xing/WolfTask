@@ -7,9 +7,9 @@ export interface User {
     avatar:         string;
     projectIds:     string[];
     taskIds:        string[];
-    address:        Address;
-    dateOfBirth:    string;
-    identity:       Identity;
+    address?:       Address;
+    dateOfBirth?:   string;
+    identity?:      Identity;
 }
 
 // 地址
@@ -24,5 +24,14 @@ export interface Address {
 // 身份
 export interface Identity {
     identityNo:     string;
-    identityType:   string;
+    identityType:   IdentityType;
+}
+
+// 证件类型
+export enum IdentityType {
+    Idcard = 0,
+    Insurance,
+    Passport,
+    Military,
+    Other
 }

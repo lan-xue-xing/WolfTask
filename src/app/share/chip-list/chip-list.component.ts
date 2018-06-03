@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, forwardRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../../models';
@@ -15,7 +15,8 @@ import { UserService } from './../../services/user.service';
     {
       provide: NG_VALIDATORS, useExisting: forwardRef(() => ChipListComponent), multi: true
     }
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChipListComponent implements OnInit, ControlValueAccessor {
 

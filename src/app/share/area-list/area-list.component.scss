@@ -1,0 +1,13 @@
+// 地址容器
+.address-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+// 街道地址容器
+.street {
+    float: 1 1 100%;
+}

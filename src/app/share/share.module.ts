@@ -21,13 +21,16 @@ import {
   MdNativeDateModule,
   MdSelectModule,
   MdButtonToggleModule,
-  MdChipsModule
+  MdChipsModule,
+  MdTabsModule
 } from '@angular/material';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { DirectiveModule } from '../directive/directive.module';
 import { ImageListSelectComponent } from './image-list-select/image-list-select.component';
 import { AgeInputComponent } from './age-input/age-input.component';
 import { ChipListComponent } from './chip-list/chip-list.component';
+import { IdentityInputComponent } from './identity-input/identity-input.component';
+import { AreaListComponent } from './area-list/area-list.component';
 
 @NgModule({
   imports: [
@@ -50,11 +53,12 @@ import { ChipListComponent } from './chip-list/chip-list.component';
     MdNativeDateModule,
     MdRadioModule,
     MdSelectModule,
+    MdChipsModule,
     DirectiveModule,
+    MdTabsModule,
     FormsModule,
     ReactiveFormsModule,
-    MdButtonToggleModule,
-    MdChipsModule
+    MdButtonToggleModule
   ],
   exports: [
     CommonModule,
@@ -76,6 +80,8 @@ import { ChipListComponent } from './chip-list/chip-list.component';
     MdNativeDateModule,
     MdRadioModule,
     MdSelectModule,
+    MdChipsModule,
+    MdTabsModule,
     DirectiveModule,
     FormsModule,
     ReactiveFormsModule,
@@ -83,7 +89,8 @@ import { ChipListComponent } from './chip-list/chip-list.component';
     AgeInputComponent,
     MdButtonToggleModule,
     ChipListComponent,
-    MdChipsModule
+    IdentityInputComponent,
+    AreaListComponent
   ],
   entryComponents: [
     ConfirmDialogComponent
@@ -92,7 +99,9 @@ import { ChipListComponent } from './chip-list/chip-list.component';
     ConfirmDialogComponent,
     ImageListSelectComponent,
     AgeInputComponent,
-    ChipListComponent
+    ChipListComponent,
+    IdentityInputComponent,
+    AreaListComponent
   ]
 })
 export class ShareModule { }

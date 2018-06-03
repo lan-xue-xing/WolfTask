@@ -1,5 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs/Subscription';
+import { extractInfo, getAddrByCode, isValidAddr, isValidDate } from '../../utils';
+import { Identity } from './../../models';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./register.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
 
   // 头像
   avatars: string[] = [];
@@ -15,6 +18,7 @@ export class RegisterComponent implements OnInit {
 
   // 表单
   form: FormGroup;
+  subId: Subscription;
 
   constructor(
     private fb: FormBuilder
@@ -28,7 +32,22 @@ export class RegisterComponent implements OnInit {
       password:           [],
       confirmPassword:    [],
       avatar:             [img],
-      dateOfBrith:        ['1995-06-23']
+      dateOfBirth:        ['1995-06-23'],
+      identity:           [],
+      address:            []
+    });
+    const id$ = this.form.get('identity').valueChanges
+      .debounceTime(300)
+      .filter(_ => this.form.get('identity').valid);
+    this.subId = id$.subscribe((id: Identity) => {
+      const info = extractInfo(id.identityNo);
+      if (isValidAddr(info.addrCode)) {
+        const addr = getAddrByCode(info.addrCode);
+        this.form.get('address').patchValue(addr);
+      }
+      if (isValidDate(info.dateOfBirth)) {
+        this.form.get('dateOfBirth').patchValue(info.dateOfBirth);
+      }
     });
   }
 
@@ -40,6 +59,10 @@ export class RegisterComponent implements OnInit {
     ev.preventDefault();
     console.log(JSON.stringify(value));
     console.log(JSON.stringify(valid));
+  }
+
+  ngOnDestroy() {
+    if (this.subId) {this.subId.unsubscribe()}
   }
 
 }
