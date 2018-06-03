@@ -3,7 +3,7 @@ import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALIDATOR
 import { differenceInDays, differenceInMonths, differenceInYears, format, isBefore, parse, subDays, subMonths, subYears } from 'date-fns';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
-import { isValidDate } from '../../utils/date.util';
+import { isValidDate } from '../../utils';
 
 @Component({
   selector: 'app-age-input',

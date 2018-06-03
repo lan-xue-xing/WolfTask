@@ -19,6 +19,3 @@ export const getAddrByCode = (code: string) => {
 export const isValidAddr = (addrCode: string) => {
     return GB2260[addrCode] !== undefined;
 };
-
-// 校验日期
-export const isValidDate = (dateOfBirth: string) => {};
